@@ -1,7 +1,26 @@
 {
-  "store.search": {
+  "store.search": { 
     "blocks": [
-      
+      "search-result-layout" /*(1) bloco de busca*/
+    ]
+  },
+  "search-result-layout": { /*(1)*/
+    "blocks": [
+      "search-result-layout.desktop", /*vai ser exibido no desktop*/
+      "search-result-layout.mobile", /*vai ser exibido no celular*/
+      "search-not-found-layout" /*pesquisa sem resultado*/
+    ]
+  },
+  "search-result-layout.desktop": {/*(1) bloco de código filho do desktop*/
+    "children": [
+      "breadcrumb.search",
+      "search-title.v2",
+      "total-products.v2",
+      "order-by.v2",
+      "search-fetch-previous",
+      "search-content",
+      "filter-navigator.v3",
+      "search-fetch-more"
     ]
   }
 }

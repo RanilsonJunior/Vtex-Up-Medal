@@ -1,0 +1,24 @@
+/*Inicio barra de pesquisa*/
+.searchBarContainer{ 
+    width: 550px; /*aumenta o tamanho da barra de pesquisa*/
+    margin-right: 150px;
+}
+.searchBarContainer :global(.vtex-input-prefix__group){ 
+    border: none; /*tira todas as bordas*/
+    border-radius: 0px; /*tira os arredondamentos*/
+    border-bottom: 1px solid #59ff00; /*coloca uma borda em baixo de 1px e branca*/
+}
+.searchBarContainer :global(.vtex-styleguide-9-x-input){
+    color: #59ff00; /*modifica a cor do texto*/
+    font-size: border-box;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.43;
+}/*Final da barra de pesquisa*/
+
+/*imagens do carossel*/
+.imageElement{
+    width: 912px; /*largura da imagem*/
+    height: 320px; /*altura da imagem*/
+    border-radius: 20px; /*coloca borda nas imagens do carossel*/
+}

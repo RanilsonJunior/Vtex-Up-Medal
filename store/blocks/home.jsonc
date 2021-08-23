@@ -1,15 +1,157 @@
 {
   "store.home": { 
     "blocks": [
-      "rich-text"
+      "slider-layout#home", /*(01)declarando o bloco*/
+      "tab-layout",  /*(02)carossel*/
+      "search-result-layout.customQuery#home" /*(03)buscador*/
+
     ]
   },
-  "rich-text": { 
-    "props": { 
-      "text": "VTEX Store Framework",
-      "textAlignment": "CENTER",
-      "textPosition": "CENTER",
-      "font": "t-heading-1"
+
+
+
+  /*INICIO DO BUSCADOR*/
+  "search-result-layout.customQuery#home": { /*(03)propriedades do search-result*/
+    "props": {
+      "querySchema": {
+        "skusFilter": "FIRST_AVAILABLE",
+        "simulationBehavior": "skip"
+        /*modificações são aqui (custom query)*/
+      }
+    },
+    "blocks": ["search-result-layout.desktop#lp", "search-result-layout.mobile"] /*(03)para desktop ou mobile*/
+  },
+  "search-result-layout.desktop#lp":{ /*(03)filhos do desktop*/
+    "children": [
+      "search-content#lp"
+    ],
+    "props": {
+      "preventRouteChange": true
     }
+  },
+  "flex-layout.row#result":{ /*(03)filho do flex-layout*/
+    "children":[
+      "search-content#lp"
+    ]    
+  },
+  "search-content#lp":{ /*(03)*/
+    "blocks":[
+      "gallery", "not-found"
+    ]
+  },/*FINAL DO BUSCADOR*/
+  
+
+  
+  
+
+
+
+    /*INICIO DO TAB-LAYOUT*/
+  "tab-layout": { /*(01)filhos do tab-layout*/
+    "children": [
+      "tab-list",
+      "tab-content"
+    ]
+  },
+  "tab-list": { /*(01)filhos do tab-list*/
+    "children": [
+      "tab-list.item#1",
+      "tab-list.item#2",
+      "tab-list.item#3",
+      "tab-list.item#4"
+      ]
+  },
+  "tab-list.item#1": { /*(01) conecta o botão de um tab-list com um tab-content*/
+    "props": {
+      "tabId": "palmeiras", /*id*/
+      "label": "Palmeiras",
+      "defaultActiveTab": true
+    }
+  },
+  "tab-list.item#2": {
+    "props": {
+      "tabId": "corinthians", /*id*/
+      "label": "Corinthians" 
+    }
+  },
+  "tab-list.item#3": {
+    "props": {
+      "tabId": "promoçao", /*id*/
+      "label": "Promoçao" 
+    }
+  },
+  "tab-list.item#4": {
+    "props": {
+      "tabId": "signos", /*id*/
+      "label": "Signos" 
+    }
+  },
+  "tab-content": { /*(01)filhos do tab-content*/
+    "children": [
+      "tab-content.item#1",
+      "tab-content.item#2",
+      "tab-content.item#3",
+      "tab-content.item#4"
+      ]
+    },
+    "tab-content.item#1": { /*(01)*/
+      "children": [
+        "rich-text#1"
+      ],
+      "props": {
+        "tabId": "palmeiras" /*o nome tem que ser igual ao id*/
+      }
+    },
+    "tab-content.item#2": {
+      "children": [
+        "rich-text#2"
+      ],
+      "props": {
+        "tabId": "corinthians" /*o nome tem que ser igual ao id*/
+      }
+    },
+    "tab-content.item#3": { /*(01)*/
+      "children": [
+        "rich-text#3"
+      ],
+      "props": {
+        "tabId": "promoçao" /*o nome tem que ser igual ao id*/
+      }
+    },
+    "tab-content.item#4": { /*(01)*/
+      "children": [
+        "rich-text#4"
+      ],
+      "props": {
+        "tabId": "signos" /*o nome tem que ser igual ao id*/
+      }
+    },
+    "rich-text#1": { /*o que vai aparecer quando clica no botão*/
+      "props": {
+        "text": "aqui é palmeiras",
+        "textPosition": "CENTER",
+        "font": "t-heading-3"
+      }
+    },
+    "rich-text#2": {
+      "props": {
+        "text": "aqui é corinthians",
+        "textPosition": "CENTER",
+        "font": "t-heading-3"
+      }
+    },
+    "rich-text#3": { 
+      "props": {
+        "text": "aqui é promoção",
+        "textPosition": "CENTER",
+        "font": "t-heading-3"
+      }
+    },
+    "rich-text#4": { 
+      "props": {
+        "text": "aqui é signos",
+        "textPosition": "CENTER",
+        "font": "t-heading-3"
+      }/*FINAL DO TAB-LAYOUT*/      
   }
 }
